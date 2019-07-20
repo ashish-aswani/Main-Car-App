@@ -1,0 +1,43 @@
+﻿@model CarServiceAPP.Models.Customer
+@{
+	ViewBag.Title = "CustomerForm";
+}
+
+<h2>Customer Form</h2>
+
+
+@using (Html.BeginForm("RegisterCustomer", "Customer"))
+{
+	<div class="form-group">
+		@Html.LabelFor(m => m.FirstName)
+		@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+		@*@Html.ValidationMessageFor(m => m.FirstName)*@
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.LastName)
+		@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+		@*@Html.ValidationMessageFor(m => m.LastName)*@
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Email)
+		@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+		@*@Html.ValidationMessageFor(m => m.Email)*@
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Mobile)
+		@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control" })
+		@*Html.ValidationMessageFor(m => m.Mobile)*@
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.City)
+		@Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+		@*@Html.ValidationMessageFor(m => m.City)*@
+	</div>
+	@Html.HiddenFor(m=>m.Id)
+	<button class="btn btn-primary" type="submit">Submit</button>
+}
+
