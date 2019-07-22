@@ -32,6 +32,6 @@
 		@Html.TextBoxFor(c => c.Cars.Year, new { @class = "form-control" })
 	</div>
 	@Html.HiddenFor(c => c.Customers.Id)
-    @*@Html.HiddenFor(c=>c.Cars.Id)*@
+    @Html.HiddenFor(c=>c.Cars.Id)
 	<button class="btn btn-primary" type="submit">Submit</button>
 }
