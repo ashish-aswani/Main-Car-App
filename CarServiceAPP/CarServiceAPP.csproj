@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201907201006362_updatedMigration.Designer.cs">
       <DependentUpon>201907201006362_updatedMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907221410384_updated.cs" />
+    <Compile Include="Migrations\201907221410384_updated.Designer.cs">
+      <DependentUpon>201907221410384_updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
@@ -195,6 +199,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CarAndCustomerViewModel.cs" />
     <Compile Include="ViewModels\CarAndServiceViewModel.cs" />
+    <Compile Include="ViewModels\CarCustomer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -281,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907201006362_updatedMigration.resx">
       <DependentUpon>201907201006362_updatedMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907221410384_updated.resx">
+      <DependentUpon>201907221410384_updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

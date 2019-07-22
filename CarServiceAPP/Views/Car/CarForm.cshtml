@@ -1,4 +1,4 @@
-﻿@model CarServiceAPP.Models.Car
+﻿@model CarServiceAPP.ViewModels.CarCustomer
 @{
 	ViewBag.Title = "CarForm";
 }
@@ -8,29 +8,30 @@
 @using (Html.BeginForm("AddCar", "Car"))
 {
 	<div class="form-group">
-		@Html.LabelFor(c => c.VIN)
-		@Html.TextBoxFor(c => c.VIN, new { @class = "form-control" })
+		@Html.LabelFor(c=>c.Cars.VIN)
+		@Html.TextBoxFor(c=>c.Cars.VIN, new { @class = "form-control" })
 	</div>
 
 	<div class="form-group">
-		@Html.LabelFor(c => c.Make)
-		@Html.EnumDropDownListFor(c => c.Make, new { @class = "form-control" })
+		@Html.LabelFor(c => c.Cars.Make)
+		@Html.EnumDropDownListFor(c => c.Cars.Make, new { @class = "form-control" })
 	</div>
 
 	<div class="form-group">
-		@Html.LabelFor(c => c.Model)
-		@Html.TextBoxFor(c => c.Model, new { @class = "form-control" })
+		@Html.LabelFor(c => c.Cars.Model)
+		@Html.TextBoxFor(c => c.Cars.Model, new { @class = "form-control" })
 	</div>
 
 	<div class="form-group">
-		@Html.LabelFor(c => c.Style)
-		@Html.EnumDropDownListFor(c => c.Style, new { @class = "form-control" })
+		@Html.LabelFor(c => c.Cars.Style)
+		@Html.EnumDropDownListFor(c => c.Cars.Style, new { @class = "form-control" })
 	</div>
 
 	<div class="form-group">
-		@Html.LabelFor(c => c.Year)
-		@Html.TextBoxFor(c => c.Year, new { @class = "form-control" })
+		@Html.LabelFor(c => c.Cars.Year)
+		@Html.TextBoxFor(c => c.Cars.Year, new { @class = "form-control" })
 	</div>
-	@Html.HiddenFor(c => c.Id)
+	@Html.HiddenFor(c => c.Customers.Id)
+    @*@Html.HiddenFor(c=>c.Cars.Id)*@
 	<button class="btn btn-primary" type="submit">Submit</button>
 }

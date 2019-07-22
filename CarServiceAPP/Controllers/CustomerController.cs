@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CarServiceAPP.ViewModels;
 
 namespace CarServiceAPP.Controllers
 {
@@ -22,6 +23,7 @@ namespace CarServiceAPP.Controllers
 		}
 		public ActionResult Index()
         {
+            
 			var customers = _context.Customers.ToList();
             return View(customers);
         }
@@ -70,12 +72,18 @@ namespace CarServiceAPP.Controllers
 		}
 
 		// Cars
+		// Cars
 
-		public ActionResult ViewDetails(int? id)
+		public ActionResult ViewDetails(Customer customer)
 		{
-			var customerDetails = _context.Customers;
-			return View(customerDetails.SingleOrDefault(c => c.Id == id));
-
+            var customerDetails = new CarAndCustomerViewModel()
+            {
+                Customers = _context.Customers.SingleOrDefault(c => c.Id == customer.Id),
+                Cars = _context.Cars.ToList()
+                
+            };
+                
+			return View(customerDetails);
 		}
 
 	}

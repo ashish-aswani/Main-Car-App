@@ -1,7 +1,51 @@
 ﻿@model CarServiceAPP.ViewModels.CarAndCustomerViewModel
-@{
+@{ 
     ViewBag.Title = "ViewDetails";
 }
 
-<h2>ViewDetails</h2>
+<h2>View Details</h2>
 
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Mobile</th>
+    </tr>
+
+    <tr>
+        <td>@Model.Customers.FirstName</td>
+        <td>@Model.Customers.LastName</td>
+        <td>@Model.Customers.Email</td>
+        <td>@Model.Customers.City</td>
+        <td>@Model.Customers.Mobile</td>
+    </tr>
+</table>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>VIN</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Style</th>
+        <th>Year</th>
+    </tr>
+    @foreach (var item in Model.Cars)
+    {
+        if (item.CustomerId == Model.Customers.Id)
+        {
+            <tr>
+                <td>@item.VIN</td>
+                <td>@item.Make</td>
+                <td>@item.Model</td>
+                <td>@item.Style</td>
+                <td>@item.Year</td>
+            </tr>
+        }
+
+    }
+
+</table>
+
+<button>@Html.ActionLink("Add Car", "CarForm", "Car",Model.Customers,new {style="color:red;" })</button>

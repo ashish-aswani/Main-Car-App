@@ -106,3 +106,4 @@ D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.pdb
 D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.InitialMigration.resources
 D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.csproj.GenerateResource.cache
 D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.updatedMigration.resources
+D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.updated.resources

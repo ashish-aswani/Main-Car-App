@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CarServiceAPP.Models;
+using CarServiceAPP.ViewModels;
 
 namespace CarServiceAPP.Controllers
 {
@@ -29,26 +30,35 @@ namespace CarServiceAPP.Controllers
             return View();
         }
 
-		public ActionResult CarForm(Car car)
+		public ActionResult CarForm(Customer customer)
 		{
-			return View(car);
+            var viewModel = new CarCustomer()
+            {
+                Customers = customer
+            };
+			return View(viewModel);
 		}
 
-		public ActionResult AddCar(Car car)
+		public ActionResult AddCar(CarCustomer carCustomer)
 		{
-			if (car.Id == 0)
-				_context.Cars.Add(car);
-			else
-			{
-				var carInDb = _context.Cars.Single(c => c.Id == car.Id);
-				carInDb.VIN = car.VIN;
-				carInDb.Make = car.Make;
-				carInDb.Model = car.Model;
-				carInDb.Style = car.Style;
-				carInDb.Year = car.Year;
-			}
+           
+            //if (carCustomer.Cars.Id == 0)
+            //{
+                carCustomer.Cars.CustomerId = carCustomer.Customers.Id;
+                _context.Cars.Add(carCustomer.Cars);
+            //}
+            //else
+            //{
+            //    var carInDb = _context.Cars.Single(c => c.Id == carCustomer.Cars.Id);
+            //    carInDb.VIN = carCustomer.Cars.VIN;
+            //    carInDb.Make = carCustomer.Cars.Make;
+            //    carInDb.Model = carCustomer.Cars.Model;
+            //    carInDb.Style = carCustomer.Cars.Style;
+            //    carInDb.Year = carCustomer.Cars.Year;
+            //}
 			_context.SaveChanges();
-			return RedirectToAction("ViewDetails", "Customer");
+			return RedirectToAction("ViewDetails", "Customer",carCustomer.Customers);
+            
 		}
     }
 }
