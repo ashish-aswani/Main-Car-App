@@ -263,6 +263,7 @@
     <Content Include="Views\Customer\ViewCars.cshtml" />
     <Content Include="Views\Car\CarForm.cshtml" />
     <Content Include="Views\Customer\ViewDetails.cshtml" />
+    <Content Include="Views\Car\EditCar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

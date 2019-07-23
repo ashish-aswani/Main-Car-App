@@ -72,7 +72,7 @@ namespace CarServiceAPP.Controllers
 		}
 
 		// Cars
-		// Cars
+		
 
 		public ActionResult ViewDetails(Customer customer)
 		{
