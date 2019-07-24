@@ -41,51 +41,36 @@ namespace CarServiceAPP.Controllers
 
 		public ActionResult AddCar(CarCustomer carCustomer)
 		{
-
-            //if (carCustomer.Cars.Id == 0)
-            //{
                 carCustomer.Cars.CustomerId = carCustomer.Customers.Id;
                 _context.Cars.Add(carCustomer.Cars);
-            //}
-            //else
-            //{
-            //    var carInDb = _context.Cars.Single(c => c.Id == carCustomer.Cars.Id);
-            //    carInDb.VIN = carCustomer.Cars.VIN;
-            //    carInDb.Make = carCustomer.Cars.Make;
-            //    carInDb.Model = carCustomer.Cars.Model;
-            //    carInDb.Style = carCustomer.Cars.Style;
-            //    carInDb.Year = carCustomer.Cars.Year;
-            //}
+
             _context.SaveChanges();
 			return RedirectToAction("ViewDetails", "Customer",carCustomer.Customers);
             
 		}
 
-        [HttpPost]
 
-        public ActionResult EditCar(Customer customer)
+        public ActionResult EditCar(Car car)
         {
 
-            var viewmodel = new CarCustomer()
-            {
-                Customers = customer
-            };
-
-            return View(viewmodel);
+            var c = _context.Cars.Find(car.Id);
+            return View(c);
 
           
         }
 
-        public ActionResult SaveEdit(CarCustomer carCustomer)
+        public ActionResult SaveEdit(Car car)
         {
-            var editCar = _context.Cars.Find(carCustomer.Cars.Id);
-            editCar.VIN = carCustomer.Cars.VIN;
-            editCar.Make = carCustomer.Cars.Make;
-            editCar.Model = carCustomer.Cars.Model;
-            editCar.Style = carCustomer.Cars.Style;
-            editCar.Year = carCustomer.Cars.Year;
+            var editCar = _context.Cars.Find(car.Id);
+
+            editCar.VIN = car.VIN;
+            editCar.Make = car.Make;
+            editCar.Model = car.Model;
+            editCar.Style = car.Style;
+            editCar.Year = car.Year;
             _context.SaveChanges();
-            return RedirectToAction("ViewDetails","Customer",_context.Customers.Find(carCustomer.Cars.CustomerId));
+            var customer = _context.Customers.Find(editCar.CustomerId);
+            return RedirectToAction("ViewDetails","Customer",customer);
           
         }
         public ActionResult DeleteCar(Car car)

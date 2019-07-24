@@ -79,6 +79,7 @@ namespace CarServiceAPP.Controllers
             var customerDetails = new CarAndCustomerViewModel()
             {
                 Customers = _context.Customers.SingleOrDefault(c => c.Id == customer.Id),
+                //Customers = customer,
                 Cars = _context.Cars.ToList()
                 
             };
