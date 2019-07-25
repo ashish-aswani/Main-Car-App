@@ -54,9 +54,9 @@ namespace CarServiceAPP
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "326185095002610",
+               appSecret: "25325019ebc28d6da5fd6df72a071450");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

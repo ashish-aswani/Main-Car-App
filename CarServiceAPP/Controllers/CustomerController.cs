@@ -21,10 +21,34 @@ namespace CarServiceAPP.Controllers
 		{
 			_context.Dispose();
 		}
-		public ActionResult Index()
+		public ActionResult Index(string option = "", string search = "")
         {
-            
-			var customers = _context.Customers.ToList();
+            if (option.Equals("Email"))
+            {
+                if (search.Equals(""))
+                    return View(_context.Customers.ToList());
+                else
+                    return View(_context.Customers.Where(c => c.Email.Equals(search)).ToList());
+            }
+            else if (option.Equals("Mobile"))
+            {
+                if (search.Equals(""))
+                    return View(_context.Customers.ToList());
+                else
+                    return View(_context.Customers.Where(c => c.Mobile.ToString().Equals(search)).ToList());
+            }
+            else if (option.Equals("FirstName"))
+            {
+                if (search.Equals(""))
+                    return View(_context.Customers.ToList());
+                else
+                    return View(_context.Customers.Where(c => c.FirstName.Equals(search)).ToList());
+            }
+            else
+            {
+                return View(_context.Customers.ToList());
+            }
+            var customers = _context.Customers.ToList();
             return View(customers);
         }
 
@@ -87,5 +111,33 @@ namespace CarServiceAPP.Controllers
 			return View(customerDetails);
 		}
 
-	}
+        public ActionResult SearchCustomer(string option="", string search="")
+        {
+            if (option.Equals("Email"))
+            {
+                if (search.Equals(""))
+                    return View(_context.Customers.ToList());
+                else
+                    return View(_context.Customers.Where(c => c.Email.Equals(search)).ToList());
+            }
+            else if (option.Equals("Mobile"))
+            {
+                if (search.Equals(""))
+                    return View(_context.Customers.ToList());
+                else
+                    return View(_context.Customers.Where(c => c.Mobile.ToString().Equals(search)).ToList());
+            }
+            else if (option.Equals("FirstName"))
+            {
+                if (search.Equals(""))
+                    return View(_context.Customers.ToList());
+                else
+                    return View(_context.Customers.Where(c => c.FirstName.Equals(search)).ToList());
+            }
+            else
+            {
+                return View(_context.Customers.ToList());
+            }
+        }
+    }
 }
