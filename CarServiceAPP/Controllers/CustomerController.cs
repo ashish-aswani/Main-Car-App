@@ -48,8 +48,8 @@ namespace CarServiceAPP.Controllers
             {
                 return View(_context.Customers.ToList());
             }
-            var customers = _context.Customers.ToList();
-            return View(customers);
+            //var customers = _context.Customers.ToList();
+            //return View(customers);
         }
 
 		public ActionResult CustomerForm(Customer customer)
