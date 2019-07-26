@@ -11,7 +11,7 @@
 	<div class="form-group">
 		@Html.LabelFor(m => m.FirstName)
 		@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
-		@*@Html.ValidationMessageFor(m => m.FirstName)*@
+		@Html.ValidationMessageFor(m => m.FirstName)
 	</div>
 
 	<div class="form-group">
@@ -38,6 +38,6 @@
 		@*@Html.ValidationMessageFor(m => m.City)*@
 	</div>
 	@Html.HiddenFor(m=>m.Id)
-	<button class="btn btn-primary" type="submit">Submit</button>
+	<button class="btn btn-dark" type="submit">Submit</button>
 }
 

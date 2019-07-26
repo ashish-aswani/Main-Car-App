@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 
-<button>@Html.ActionLink("Create New Customer", "CustomerForm", "Customer")</button>
+<button>@Html.ActionLink("Create New Customer", "CustomerForm", "Customer",new {@class=" btn fa fa-plus " ,style="color:black;"})</button>
 @using (Html.BeginForm("Index", "Customer", FormMethod.Get))
 {
     <div class="container searchbar" style="display: flex; justify-content: flex-end">
@@ -19,7 +19,7 @@
                 @Html.RadioButton("option", "FirstName") <text><strong>First Name</strong></text>
                 @Html.RadioButton("option", "Mobile") <text><strong>Mobile</strong></text>
                 @Html.RadioButton("option", "Email")<text><strong>Email</strong></text>
-                @Html.TextBox("search") <button class="fa fa-search " type="submit" name="submit" style="background-color:gray;color:aqua;font-size:24px"> </button>
+                @Html.TextBox("search") <button class="fa fa-search" type="submit" name="submit" style="background-color:black;color:white;font-size:20px"> </button>
 
             </div>
         </div>
@@ -46,9 +46,9 @@
                 <td>@item.Email</td>
                 <td>@item.Mobile</td>
                 <td>@item.City</td>
-                <td>@Html.ActionLink("View Cars", "ViewDetails", item, new { @class = "btn  btn-dark" })</td>
-                <td>@Html.ActionLink("Edit", "CustomerForm", item, new { @class = "btn  btn-success" })</td>
-                <td>@Html.ActionLink("Delete", "DeleteCustomerDetails", item, new { @class = "btn  btn-danger" })</td>
+                <td>@Html.ActionLink(" ", "ViewDetails", item, new { @class = "btn  btn-dark fas fa-car-alt" })</td>
+                <td>@Html.ActionLink(" ", "CustomerForm", item, new { @class = "btn  btn-success fa fa-edit" })</td>
+                <td>@Html.ActionLink(" ", "DeleteCustomerDetails", item, new { @class = "btn  btn-danger fa fa-trash" })</td>
             </tr>
         }
 

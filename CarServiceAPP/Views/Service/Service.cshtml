@@ -2,7 +2,10 @@
 @{
     ViewBag.Title = "Service";
 }
-
+@section css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
 <h2>Car</h2>
 <table class="table table-bordered table-striped">
     <tr>
@@ -29,28 +32,28 @@
 }
 else
 {
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>Miles</th>
-        <th>Price</th>
-        <th>Date Added</th>
-        <th>Service Type</th>
-        <th></th>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Miles</th>
+            <th>Price</th>
+            <th>Date Added</th>
+            <th>Service Type</th>
+            <th></th>
 
 
-    </tr>
-    @foreach (var item in Model.Services)
-    {
-<tr>
-    <td>@item.Miles</td>
-    <td>@item.Price</td>
-    <td>@item.DateAdded</td>
-    <td>@item.ServiceType</td>
-    <td><button class="btn btn-danger">@Html.ActionLink("Delete", "DeleteService", "Service", item, new { })</button></td>
-</tr>
-    }
+        </tr>
+        @foreach (var item in Model.Services)
+        {
+            <tr>
+                <td>@item.Miles</td>
+                <td>@item.Price</td>
+                <td>@item.DateAdded</td>
+                <td>@item.ServiceType</td>
+                <td>@*<button class="btn btn-danger fa fa-trash">*@@Html.ActionLink(" ", "DeleteService", "Service", item, new { @class = "btn  btn-danger fa fa-trash" })@*</button>*@</td>
+            </tr>
+        }
 
-</table>
+    </table>
 }
 
-<button>@Html.ActionLink("Add Service", "ServiceForm", "Service", Model.Cars, new { style = "color:red;" })</button>
+@Html.ActionLink("Add Service", "ServiceForm", "Service", Model.Cars, new { @class = "btn btn-dark" })

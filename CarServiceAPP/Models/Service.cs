@@ -20,16 +20,17 @@ namespace CarServiceAPP.Models
 
 		[Required]
 		[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
-		public DateTime DateAdded { get; set; }
+        [Display(Name = "Date Added")]
+        public DateTime DateAdded { get; set; }
 
-		[Required]
 		public int CarId { get; set; }
 
 		[ForeignKey("CarId")]
 		public virtual Car Car { get; set; }
 
 		[Required]
-		public EnumServiceType ServiceType { get; set; }
+        [Display(Name = "Service Type")]
+        public EnumServiceType ServiceType { get; set; }
 
 	}
 }

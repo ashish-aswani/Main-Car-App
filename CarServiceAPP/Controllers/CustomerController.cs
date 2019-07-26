@@ -52,39 +52,46 @@ namespace CarServiceAPP.Controllers
             //return View(customers);
         }
 
-		public ActionResult CustomerForm(Customer customer)
+		public ActionResult CustomerForm()
 		{
 			
-			return View(customer);
+			return View();
 		}
 
 		public ActionResult RegisterCustomer(Customer customer)
 		{
-			if (customer.Id == 0)
-				_context.Customers.Add(customer);
-			else
-			{
-				var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
-				customerInDb.FirstName = customer.FirstName;
-				customerInDb.LastName = customer.LastName;
-				customerInDb.Email = customer.Email;
-				customerInDb.Mobile = customer.Mobile;
-				customerInDb.City = customer.City;
-			}
-			_context.SaveChanges();
-			return RedirectToAction("Index", "Customer");
+            if (ModelState.IsValid)
+            {
+                if (customer.Id == 0)
+                    _context.Customers.Add(customer);
+                else
+                {
+                    var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                    customerInDb.FirstName = customer.FirstName;
+                    customerInDb.LastName = customer.LastName;
+                    customerInDb.Email = customer.Email;
+                    customerInDb.Mobile = customer.Mobile;
+                    customerInDb.City = customer.City;
+                }
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Customer");
+            }
+            else
+            {
+                return View("CustomerForm");
+            }
 		}
 
-		public ActionResult EditCustomer(Customer customer)
-		{
-			var editCustomer = _context.Customers.SingleOrDefault(c => c.Id == customer.Id);
-			if (customer == null)
-				return HttpNotFound();
-			else
-			{
-				return View("CustomerForm", customer);
-			}
-		}
+		//public ActionResult EditCustomer(Customer customer)
+		//{
+		//	var editCustomer = _context.Customers.SingleOrDefault(c => c.Id == customer.Id);
+		//	if (customer == null)
+		//		return HttpNotFound();
+		//	else
+		//	{
+		//		return View("CustomerForm", customer);
+		//	}
+		//}
 
 		public ActionResult DeleteCustomerDetails(Customer customer)
 		{

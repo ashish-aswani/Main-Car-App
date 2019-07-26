@@ -1,9 +1,13 @@
 ﻿@model CarServiceAPP.ViewModels.CarAndCustomerViewModel
-@{ 
+@{
     ViewBag.Title = "ViewDetails";
 }
 
 <h2>View Details</h2>
+@section css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
 
 <table class="table  table-striped table-hover">
     <tr>
@@ -44,9 +48,10 @@
                 <td>@item.Model</td>
                 <td>@item.Style</td>
                 <td>@item.Year</td>
-                <td>@Html.ActionLink("View Service", "Service","Service", item,new { @class ="btn btn-dark"})</td>
-		        <td>@Html.ActionLink("Edit", "EditCar","Car",item,new { @class = "btn  btn-warning"})</td>
-		        <td>@Html.ActionLink("Delete", "DeleteCar","Car", item,new { @class = "btn  btn-danger"})</td>
+
+                <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench" })</td>
+                <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil" })</td>
+                <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash" })</td>
             </tr>
         }
 
@@ -54,7 +59,6 @@
 
 </table>
 
-<button>@Html.ActionLink("Add Car", "CarForm", "Car",Model.Customers,new {style="color:red;" })</button>
+<button>@Html.ActionLink("Add Car", "CarForm", "Car", Model.Customers, new {@class=" btn fa fa-plus " ,style="color:black;"})</button>
 
-    
 
