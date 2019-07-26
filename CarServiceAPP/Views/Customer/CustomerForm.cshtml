@@ -17,25 +17,25 @@
 	<div class="form-group">
 		@Html.LabelFor(m => m.LastName)
 		@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-		@*@Html.ValidationMessageFor(m => m.LastName)*@
+		@Html.ValidationMessageFor(m => m.LastName)
 	</div>
 
 	<div class="form-group">
 		@Html.LabelFor(m => m.Email)
 		@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-		@*@Html.ValidationMessageFor(m => m.Email)*@
+		@Html.ValidationMessageFor(m => m.Email)
 	</div>
 
 	<div class="form-group">
 		@Html.LabelFor(m => m.Mobile)
 		@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control" })
-		@*Html.ValidationMessageFor(m => m.Mobile)*@
+		@Html.ValidationMessageFor(m => m.Mobile)
 	</div>
 
 	<div class="form-group">
 		@Html.LabelFor(m => m.City)
 		@Html.TextBoxFor(m => m.City, new { @class = "form-control" })
-		@*@Html.ValidationMessageFor(m => m.City)*@
+		@Html.ValidationMessageFor(m => m.City)
 	</div>
 	@Html.HiddenFor(m=>m.Id)
 	<button class="btn btn-dark" type="submit">Submit</button>
