@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CarServiceAPP.Models.Customer>
+﻿@model IEnumerable<CarServiceAPP.Models.ApplicationUser>
 @{
     ViewBag.Title = "Index";
 }
@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 
-<button>@Html.ActionLink("Create New Customer", "CustomerForm", "Customer",new {@class=" btn fa fa-plus " ,style="color:black;"})</button>
+@*<button>@Html.ActionLink("Create New Customer", "Register", "Account",new {@class=" btn fa fa-plus " ,style="color:black;"})</button>*@
+
 @using (Html.BeginForm("Index", "Customer", FormMethod.Get))
 {
     <div class="container searchbar" style="display: flex; justify-content: flex-end">
@@ -44,10 +45,10 @@
                 <td>@item.FirstName</td>
                 <td>@item.LastName</td>
                 <td>@item.Email</td>
-                <td>@item.Mobile</td>
+                <td>@item.PhoneNumber</td>
                 <td>@item.City</td>
                 <td>@Html.ActionLink(" ", "ViewDetails", item, new { @class = "btn  btn-dark fas fa-car-alt" })</td>
-                <td>@Html.ActionLink(" ", "CustomerForm", item, new { @class = "btn  btn-success fa fa-edit" })</td>
+                <td>@Html.ActionLink(" ", "EditCustomer", "Customer", item, new { @class = "btn  btn-success fa fa-edit" })</td>
                 <td>@Html.ActionLink(" ", "DeleteCustomerDetails", item, new { @class = "btn  btn-danger fa fa-trash" })</td>
             </tr>
         }

@@ -15,19 +15,19 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>City</th>
-        <th>Mobile</th>
+        @*<th>Mobile</th>*@
     </tr>
 
     <tr>
-        <td>@Model.Customers.FirstName</td>
-        <td>@Model.Customers.LastName</td>
-        <td>@Model.Customers.Email</td>
-        <td>@Model.Customers.City</td>
-        <td>@Model.Customers.Mobile</td>
+        <td>@Model.User.FirstName</td>
+        <td>@Model.User.LastName</td>
+        <td>@Model.User.Email</td>
+        <td>@Model.User.City</td>
+        @*<td>@Model.User.PhoneNumber</td>*@
     </tr>
 </table>
 
-<table class="table table-bordered table-striped">
+@*<table class="table table-bordered table-striped">
     <tr>
         <th>VIN</th>
         <th>Make</th>
@@ -59,6 +59,6 @@
 
 </table>
 
-<button>@Html.ActionLink("Add Car", "CarForm", "Car", Model.Customers, new {@class=" btn fa fa-plus " ,style="color:black;"})</button>
+<button>@Html.ActionLink("Add Car", "CarForm", "Car", Model.Customers, new {@class=" btn fa fa-plus " ,style="color:black;"})</button>*@
 
 

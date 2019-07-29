@@ -26,92 +26,72 @@ namespace CarServiceAPP.Controllers
             if (option.Equals("Email"))
             {
                 if (search.Equals(""))
-                    return View(_context.Customers.ToList());
+                    return View(_context.Users.ToList());
                 else
-                    return View(_context.Customers.Where(c => c.Email.Equals(search)).ToList());
+                    return View(_context.Users.Where(c => c.Email.Equals(search)).ToList());
             }
             else if (option.Equals("Mobile"))
             {
                 if (search.Equals(""))
-                    return View(_context.Customers.ToList());
+                    return View(_context.Users.ToList());
                 else
-                    return View(_context.Customers.Where(c => c.Mobile.ToString().Equals(search)).ToList());
+                    return View(_context.Users.Where(c => c.PhoneNumber.ToString().Equals(search)).ToList());
             }
             else if (option.Equals("FirstName"))
             {
                 if (search.Equals(""))
-                    return View(_context.Customers.ToList());
+                    return View(_context.Users.ToList());
                 else
-                    return View(_context.Customers.Where(c => c.FirstName.Equals(search)).ToList());
+                    return View(_context.Users.Where(c => c.FirstName.Equals(search)).ToList());
             }
             else
             {
-                return View(_context.Customers.ToList());
+                return View(_context.Users.ToList());
             }
-            //var customers = _context.Customers.ToList();
-            //return View(customers);
         }
 
-		public ActionResult CustomerForm()
-		{
-			
-			return View();
-		}
 
-		public ActionResult RegisterCustomer(Customer customer)
-		{
-            if (ModelState.IsValid)
-            {
-                if (customer.Id == 0)
-                    _context.Customers.Add(customer);
-                else
-                {
-                    var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
-                    customerInDb.FirstName = customer.FirstName;
-                    customerInDb.LastName = customer.LastName;
-                    customerInDb.Email = customer.Email;
-                    customerInDb.Mobile = customer.Mobile;
-                    customerInDb.City = customer.City;
-                }
-                _context.SaveChanges();
-                return RedirectToAction("Index", "Customer");
-            }
-            else
-            {
-                return View("CustomerForm");
-            }
-		}
+        public ActionResult EditCustomer(ApplicationUser applicationUser)
+        {
 
-		//public ActionResult EditCustomer(Customer customer)
-		//{
-		//	var editCustomer = _context.Customers.SingleOrDefault(c => c.Id == customer.Id);
-		//	if (customer == null)
-		//		return HttpNotFound();
-		//	else
-		//	{
-		//		return View("CustomerForm", customer);
-		//	}
-		//}
+            var editCustomer = _context.Users.Where(c=>c.UserName.Equals(applicationUser.UserName)).SingleOrDefault();
+            return View(editCustomer);
+        }
 
-		public ActionResult DeleteCustomerDetails(Customer customer)
-		{
-			var deleteCustomer = _context.Customers.Find(customer.Id);
-			_context.Customers.Remove(deleteCustomer);
-			_context.SaveChanges();
+        public ActionResult SaveEdit(ApplicationUser applicationUser)
+        {
+            var editCustomer = _context.Users.Where(c => c.UserName.Equals(applicationUser.UserName)).SingleOrDefault();
+            editCustomer.FirstName = applicationUser.FirstName;
+            editCustomer.LastName = applicationUser.LastName;
+            editCustomer.City = applicationUser.City;
+            editCustomer.PhoneNumber = applicationUser.PhoneNumber;
 
-			return RedirectToAction("Index", "Customer");
-		}
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-		// Cars
-		
 
-		public ActionResult ViewDetails(Customer customer)
+
+
+        public ActionResult DeleteCustomerDetails(ApplicationUser applicationUser)
+        {
+            var deleteCustomer = _context.Users.Find(applicationUser.Id);
+            _context.Users.Remove(deleteCustomer);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        // Cars
+
+
+        public ActionResult ViewDetails(ApplicationUser applicationUser)
 		{
             var customerDetails = new CarAndCustomerViewModel()
             {
-                Customers = _context.Customers.SingleOrDefault(c => c.Id == customer.Id),
-                //Customers = customer,
-                Cars = _context.Cars.ToList()
+                User = _context.Users.SingleOrDefault(c => c.Id == applicationUser.Id),
+                
+                //Cars = _context.Cars.ToList()
                 
             };
                 
@@ -123,23 +103,23 @@ namespace CarServiceAPP.Controllers
             if (option.Equals("Email"))
             {
                 if (search.Equals(""))
-                    return View(_context.Customers.ToList());
+                    return View(_context.Users.ToList());
                 else
-                    return View(_context.Customers.Where(c => c.Email.Equals(search)).ToList());
+                    return View(_context.Users.Where(c => c.Email.Equals(search)).ToList());
             }
             else if (option.Equals("Mobile"))
             {
                 if (search.Equals(""))
-                    return View(_context.Customers.ToList());
+                    return View(_context.Users.ToList());
                 else
-                    return View(_context.Customers.Where(c => c.Mobile.ToString().Equals(search)).ToList());
+                    return View(_context.Users.Where(c => c.PhoneNumber.ToString().Equals(search)).ToList());
             }
             else if (option.Equals("FirstName"))
             {
                 if (search.Equals(""))
-                    return View(_context.Customers.ToList());
+                    return View(_context.Users.ToList());
                 else
-                    return View(_context.Customers.Where(c => c.FirstName.Equals(search)).ToList());
+                    return View(_context.Users.Where(c => c.FirstName.Equals(search)).ToList());
             }
             else
             {

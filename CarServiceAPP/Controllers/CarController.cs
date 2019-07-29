@@ -44,7 +44,7 @@ namespace CarServiceAPP.Controllers
 
 		public ActionResult AddCar(CarCustomer carCustomer)
 		{
-                carCustomer.Cars.CustomerId = carCustomer.Customers.Id;
+                carCustomer.Cars.ApplicationUserId = carCustomer.ApplicationUser.Id;
                 _context.Cars.Add(carCustomer.Cars);
 
             _context.SaveChanges();
@@ -55,11 +55,8 @@ namespace CarServiceAPP.Controllers
 
         public ActionResult EditCar(Car car)
         {
-
             var c = _context.Cars.Find(car.Id);
-            return View(c);
-
-          
+            return View(c);  
         }
 
         public ActionResult SaveEdit(Car car)
@@ -72,14 +69,14 @@ namespace CarServiceAPP.Controllers
             editCar.Style = car.Style;
             editCar.Year = car.Year;
             _context.SaveChanges();
-            var customer = _context.Customers.Find(editCar.CustomerId);
+            var customer = _context.Customers.Find(editCar.ApplicationUserId);
             return RedirectToAction("ViewDetails","Customer",customer);
           
         }
         public ActionResult DeleteCar(Car car)
         {
             var deleteCar = _context.Cars.Find(car.Id);
-            var id = car.CustomerId;
+            var id = car.ApplicationUserId;
             _context.Cars.Remove(deleteCar);
             _context.SaveChanges();
             var customer = _context.Customers.Find(id);

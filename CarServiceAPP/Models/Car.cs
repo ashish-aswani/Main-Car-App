@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using static CarServiceAPP.Models.EnumMakeStyleAndServiceType;
 
 namespace CarServiceAPP.Models
 {
@@ -27,9 +26,9 @@ namespace CarServiceAPP.Models
 		[Required]
 		public int Year { get; set; }
 
-		public int CustomerId { get; set; }
+		public string ApplicationUserId { get; set; }
 
-		[ForeignKey("CustomerId")]
-		public virtual Customer Customer { get; set; }
+		[ForeignKey("ApplicationUserId")]
+		public virtual ApplicationUser ApplicationUser { get; set; }
 	}
 }

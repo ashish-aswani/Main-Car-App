@@ -9,7 +9,9 @@ namespace CarServiceAPP.ViewModels
 	public class CarAndCustomerViewModel
 	{
 		public Customer Customers { get; set; }
-		public IEnumerable<Car> Cars { get; set; }
+
+        public ApplicationUser User { get; set; }
+        public IEnumerable<Car> Cars { get; set; }
 
 	}
 }

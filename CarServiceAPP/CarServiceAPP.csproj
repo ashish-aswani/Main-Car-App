@@ -196,13 +196,20 @@
     <Compile Include="Migrations\201907290510385_EnumToDb1.Designer.cs">
       <DependentUpon>201907290510385_EnumToDb1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907290722526_ApplicationUserForeignKey.cs" />
+    <Compile Include="Migrations\201907290722526_ApplicationUserForeignKey.Designer.cs">
+      <DependentUpon>201907290722526_ApplicationUserForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907291001181_ColumnsInAppUser.cs" />
+    <Compile Include="Migrations\201907291001181_ColumnsInAppUser.Designer.cs">
+      <DependentUpon>201907291001181_ColumnsInAppUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarMake.cs" />
     <Compile Include="Models\CarStyle.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\EnumMakeStyleAndServiceType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Service.cs" />
@@ -288,6 +295,7 @@
     <Content Include="Views\Car\EditCar.cshtml" />
     <Content Include="Views\Service\Service.cshtml" />
     <Content Include="Views\Service\ServiceForm.cshtml" />
+    <Content Include="Views\Customer\EditCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -320,6 +328,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907290510385_EnumToDb1.resx">
       <DependentUpon>201907290510385_EnumToDb1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907290722526_ApplicationUserForeignKey.resx">
+      <DependentUpon>201907290722526_ApplicationUserForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907291001181_ColumnsInAppUser.resx">
+      <DependentUpon>201907291001181_ColumnsInAppUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

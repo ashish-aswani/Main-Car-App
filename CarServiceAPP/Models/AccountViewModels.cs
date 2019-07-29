@@ -79,6 +79,14 @@ namespace CarServiceAPP.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        public string City { get; set; }
+
+        [Display(Name = "Mobile")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -109,4 +117,5 @@ namespace CarServiceAPP.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
 }
