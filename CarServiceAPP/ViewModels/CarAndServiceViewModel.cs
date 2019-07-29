@@ -12,5 +12,6 @@ namespace CarServiceAPP.ViewModels
         public IEnumerable<Service> Services { get; set; }
 
         public Service Service { get; set; }
+        public IEnumerable<ServiceType> ServiceTypes { get; set; }
     }
 }

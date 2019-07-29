@@ -188,14 +188,25 @@
     <Compile Include="Migrations\201907221410384_updated.Designer.cs">
       <DependentUpon>201907221410384_updated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907290503415_EnumToDb.cs" />
+    <Compile Include="Migrations\201907290503415_EnumToDb.Designer.cs">
+      <DependentUpon>201907290503415_EnumToDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907290510385_EnumToDb1.cs" />
+    <Compile Include="Migrations\201907290510385_EnumToDb1.Designer.cs">
+      <DependentUpon>201907290510385_EnumToDb1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarMake.cs" />
+    <Compile Include="Models\CarStyle.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\EnumMakeStyleAndServiceType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\ServiceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CarAndCustomerViewModel.cs" />
@@ -303,6 +314,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907221410384_updated.resx">
       <DependentUpon>201907221410384_updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907290503415_EnumToDb.resx">
+      <DependentUpon>201907290503415_EnumToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907290510385_EnumToDb1.resx">
+      <DependentUpon>201907290510385_EnumToDb1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

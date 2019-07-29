@@ -30,7 +30,7 @@ namespace CarServiceAPP.Models
 
 		[Required]
         [Display(Name = "Service Type")]
-        public EnumServiceType ServiceType { get; set; }
+        public string ServiceType { get; set; }
 
 	}
 }

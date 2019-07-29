@@ -10,5 +10,9 @@ namespace CarServiceAPP.ViewModels
     {
         public Customer Customers { get; set; }
         public Car Cars { get; set; }
+
+        public IEnumerable<CarMake> CarMakes { get; set; }
+
+        public IEnumerable<CarStyle> CarStyles  { get; set; }
     }
 }

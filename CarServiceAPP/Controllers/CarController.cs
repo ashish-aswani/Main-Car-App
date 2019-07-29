@@ -32,9 +32,12 @@ namespace CarServiceAPP.Controllers
 
 		public ActionResult CarForm(Customer customer)
 		{
+
             var viewModel = new CarCustomer()
             {
-                Customers = customer
+                Customers = customer,
+                CarMakes = _context.CarMakes.ToList(),
+                CarStyles = _context.CarStyles.ToList()
             };
 			return View(viewModel);
 		}

@@ -31,7 +31,7 @@ namespace CarServiceAPP.Models
 			AirConditioning,
 			Brakes,
 			Electrical,
-			DiagnosticsAndEnginerRepair,
+			DiagnosticsAndEngineRepair,
 			OilFluidsAndMaintenance,
 			TyresSteeringAndSuspension,
 			OtherService

@@ -32,7 +32,8 @@ namespace CarServiceAPP.Controllers
             var viewModel = new CarAndServiceViewModel
             {
                 Cars = car,
-                Services = _context.Services.ToList()
+                Services = _context.Services.ToList(),
+                ServiceTypes = _context.ServiceTypes.ToList()
             };
             return View(viewModel);
         }
@@ -41,7 +42,8 @@ namespace CarServiceAPP.Controllers
         {
             var viewModel = new CarAndServiceViewModel
             {
-                Cars = car
+                Cars = car,
+                ServiceTypes = _context.ServiceTypes.ToList()
             };
             return View(viewModel);
         }

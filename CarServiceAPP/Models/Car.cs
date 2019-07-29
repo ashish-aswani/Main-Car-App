@@ -16,13 +16,13 @@ namespace CarServiceAPP.Models
 		public string VIN { get; set; }
 
 		[Required]
-		public EnumMake Make { get; set; }
+		public string Make { get; set; }
 
 		[Required]
 		public string Model { get; set; }
 
 		[Required]
-		public EnumStyle Style { get; set; }
+		public string Style { get; set; }
 
 		[Required]
 		public int Year { get; set; }

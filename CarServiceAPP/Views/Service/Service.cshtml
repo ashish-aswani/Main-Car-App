@@ -47,7 +47,7 @@ else
             <tr>
                 <td>@item.Miles</td>
                 <td>@item.Price</td>
-                <td>@item.DateAdded</td>
+                <td>@item.DateAdded.ToLongDateString()</td>
                 <td>@item.ServiceType</td>
                 <td>@*<button class="btn btn-danger fa fa-trash">*@@Html.ActionLink(" ", "DeleteService", "Service", item, new { @class = "btn  btn-danger fa fa-trash" })@*</button>*@</td>
             </tr>

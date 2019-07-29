@@ -24,7 +24,12 @@ namespace CarServiceAPP.Models
 		public DbSet<Car> Cars { get; set; }
 
 		public DbSet<Service> Services { get; set; }
-		public ApplicationDbContext()
+
+        public DbSet<CarMake> CarMakes { get; set; }
+        public DbSet<CarStyle> CarStyles { get; set; }
+
+        public DbSet<ServiceType> ServiceTypes { get; set; }
+        public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }

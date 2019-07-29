@@ -25,7 +25,7 @@
 
     <div class="form-group">
         @Html.LabelFor(s=>s.Service.ServiceType)
-        @Html.EnumDropDownListFor(s=>s.Service.ServiceType, new { @class = "form-control" })
+        @Html.DropDownListFor(s=>s.Service.ServiceType,new SelectList(Model.ServiceTypes,"CarServiceType","CarServiceType"),"Select Service Type", new { @class = "form-control" })
     </div>
 
 
