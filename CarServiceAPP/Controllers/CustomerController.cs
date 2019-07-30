@@ -90,9 +90,9 @@ namespace CarServiceAPP.Controllers
             var customerDetails = new CarAndCustomerViewModel()
             {
                 User = _context.Users.SingleOrDefault(c => c.Id == applicationUser.Id),
-                
-                //Cars = _context.Cars.ToList()
-                
+
+                Cars = _context.Cars.ToList()
+
             };
                 
 			return View(customerDetails);

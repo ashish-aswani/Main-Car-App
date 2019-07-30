@@ -1,38 +1,38 @@
-﻿@model CarServiceAPP.Models.Car
+﻿@model CarServiceAPP.ViewModels.CarCustomer
 @{
     ViewBag.Title = "EditCar";
 }
 
 <h2>Edit Car Details</h2>
 
-@using (Html.BeginForm("SaveEdit", "Car"))
+@using (Html.BeginForm())
 {
     <div class="form-group">
-        @Html.LabelFor(c=>c.VIN)
-        @Html.TextBoxFor(c => c.VIN, new { @class = "form-control" })
+        @Html.LabelFor(c=>c.Cars.VIN)
+        @Html.TextBoxFor(c => c.Cars.VIN, new { @class = "form-control" })
 
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(c => c.Make)
-        @Html.EnumDropDownListFor(c => c.Make, new { @class = "form-control" })
+        @Html.LabelFor(c=>c.Cars.Make)
+        @Html.DropDownListFor(c => c.Cars.Make, new SelectList(Model.CarMakes,"Make","Make"),"Select Make",new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(c => c.Model)
-        @Html.TextBoxFor(c => c.Model, new { @class = "form-control" })
+        @Html.LabelFor(c => c.Cars.Model)
+        @Html.TextBoxFor(c => c.Cars.Model, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(c => c.Style)
-        @Html.EnumDropDownListFor(c => c.Style, new { @class = "form-control" })
+        @Html.LabelFor(c => c.Cars.Style)
+        @Html.DropDownListFor(c => c.Cars.Style, new SelectList(Model.CarStyles,"Style","Style"),"Select Style", new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(c => c.Year)
-        @Html.TextBoxFor(c => c.Year, new { @class = "form-control" })
+        @Html.LabelFor(c => c.Cars.Year)
+        @Html.TextBoxFor(c => c.Cars.Year, new { @class = "form-control" })
     </div>
-    @Html.HiddenFor(c => c.Id)
-   
+    @Html.HiddenFor(c => c.Cars.Id)
+  // @Html.HiddenFor(c=>c.Cars.ApplicationUserId)
     <button class="btn btn-primary" type="submit">Submit</button>
 }

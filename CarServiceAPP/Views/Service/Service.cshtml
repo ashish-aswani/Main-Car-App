@@ -44,6 +44,8 @@ else
         </tr>
         @foreach (var item in Model.Services)
         {
+            if(item.CarId==Model.Cars.Id)
+            { 
             <tr>
                 <td>@item.Miles</td>
                 <td>@item.Price</td>
@@ -51,6 +53,7 @@ else
                 <td>@item.ServiceType</td>
                 <td>@*<button class="btn btn-danger fa fa-trash">*@@Html.ActionLink(" ", "DeleteService", "Service", item, new { @class = "btn  btn-danger fa fa-trash" })@*</button>*@</td>
             </tr>
+            }
         }
 
     </table>
