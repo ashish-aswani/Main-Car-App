@@ -30,8 +30,8 @@ namespace CarServiceAPP.Controllers
             return View();
         }
 
-		public ActionResult CarForm(ApplicationUser applicationUser)
-		{
+        public ActionResult CarForm(ApplicationUser applicationUser)
+        {
 
             var viewModel = new CarCustomer()
             {
@@ -39,24 +39,35 @@ namespace CarServiceAPP.Controllers
                 CarMakes = _context.CarMakes.ToList(),
                 CarStyles = _context.CarStyles.ToList()
             };
-			return View(viewModel);
-		}
+
+            return View(viewModel);
+        }
 
 		public ActionResult AddCar(CarCustomer carCustomer)
 		{
+            if (ModelState.IsValid)
+            {
                 carCustomer.Cars.ApplicationUserId = carCustomer.ApplicationUsers.Id;
                 _context.Cars.Add(carCustomer.Cars);
 
-            _context.SaveChanges();
-			return RedirectToAction("ViewDetails", "Customer",carCustomer.ApplicationUsers);
-            
+                _context.SaveChanges();
+                return RedirectToAction("ViewDetails", "Customer", carCustomer.ApplicationUsers);
+            }
+
+            var viewModel = new CarCustomer()
+            {
+               
+                CarMakes = _context.CarMakes.ToList(),
+                CarStyles = _context.CarStyles.ToList()
+            };
+            return View("CarForm",viewModel);
 		}
 
 
         public ActionResult EditCar(Car car)
         {
            
-            //var c = _context.Cars.Find(car.Id);
+            
             var viewModel = new CarCustomer
             {
                 Cars = car,
@@ -69,22 +80,30 @@ namespace CarServiceAPP.Controllers
         [HttpPost]
         public ActionResult EditCar(CarCustomer viewModel)
         {
-            
-
-            using(var db=new ApplicationDbContext())
+            if (ModelState.IsValid)
             {
-                var editCar = db.Cars.Find(viewModel.Cars.Id);
-                editCar.VIN = viewModel.Cars.VIN;
-                editCar.Make = viewModel.Cars.Make;
-                editCar.Model = viewModel.Cars.Model;
-                editCar.Style = viewModel.Cars.Style;
-                editCar.Year = viewModel.Cars.Year;
-                db.SaveChanges();
+
+                using (var db = new ApplicationDbContext())
+                {
+                    var editCar = db.Cars.Find(viewModel.Cars.Id);
+                    editCar.VIN = viewModel.Cars.VIN;
+                    editCar.Make = viewModel.Cars.Make;
+                    editCar.Model = viewModel.Cars.Model;
+                    editCar.Style = viewModel.Cars.Style;
+                    editCar.Year = viewModel.Cars.Year;
+                    db.SaveChanges();
+                }
+
+                var user = _context.Users.Find(viewModel.Cars.ApplicationUserId);
+                return RedirectToAction("ViewDetails", "Customer", user);
             }
-            
-            var user = _context.Users.Find(viewModel.Cars.ApplicationUserId);
-            return RedirectToAction("ViewDetails","Customer",user);
-          
+
+            var viewModel1 = new CarCustomer
+            {
+                CarMakes = _context.CarMakes.ToList(),
+                CarStyles = _context.CarStyles.ToList()
+            };
+            return View("EditCar", viewModel1);
         }
         public ActionResult DeleteCar(Car car)
         {

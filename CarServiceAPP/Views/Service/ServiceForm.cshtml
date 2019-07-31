@@ -7,30 +7,38 @@
 
 @using (Html.BeginForm("AddService", "Service"))
 {
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
     <div class="form-group">
-        @Html.LabelFor(s=>s.Service.Miles)
-        @Html.TextBoxFor(s=>s.Service.Miles, new { @class = "form-control" })
+        @Html.LabelFor(s => s.Service.Miles)
+        @Html.TextBoxFor(s => s.Service.Miles, new { @class = "form-control" })
 
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(s=>s.Service.Price)
-        @Html.TextBoxFor(s=>s.Service.Price, new { @class = "form-control" })
+        @Html.LabelFor(s => s.Service.Price)
+        @Html.TextBoxFor(s => s.Service.Price, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(s=>s.Service.DateAdded)
-        @Html.TextBoxFor(s=>s.Service.DateAdded, new { @class = "form-control" })
+        @Html.LabelFor(s => s.Service.DateAdded)
+        @Html.TextBoxFor(s => s.Service.DateAdded, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(s=>s.Service.ServiceType)
-        @Html.DropDownListFor(s=>s.Service.ServiceType,new SelectList(Model.ServiceTypes,"CarServiceType","CarServiceType"),"Select Service Type", new { @class = "form-control" })
+        @Html.LabelFor(s => s.Service.ServiceType)
+        @Html.DropDownListFor(s => s.Service.ServiceType, new SelectList(Model.ServiceTypes, "CarServiceType", "CarServiceType"), "Select Service Type", new { @class = "form-control" })
     </div>
 
 
 
     @Html.HiddenFor(c => c.Cars.Id)
+    @Html.HiddenFor(c => c.Cars.VIN)
+    @Html.HiddenFor(c => c.Cars.Make)
+    @Html.HiddenFor(c => c.Cars.Model)
+    @Html.HiddenFor(c => c.Cars.Style)
     <button class="btn btn-dark" type="submit">Add Service</button>
 }
-
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

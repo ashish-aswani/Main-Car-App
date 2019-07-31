@@ -40,21 +40,30 @@ namespace CarServiceAPP.Controllers
 
         public ActionResult ServiceForm(Car car)
         {
+ 
             var viewModel = new CarAndServiceViewModel
             {
                 Cars = car,
                 ServiceTypes = _context.ServiceTypes.ToList()
             };
-            return View(viewModel);
+                return View(viewModel);   
         }
 
         public ActionResult AddService(CarAndServiceViewModel carAndService)
         {
-            carAndService.Service.CarId = carAndService.Cars.Id;
-            _context.Services.Add(carAndService.Service);
-            _context.SaveChanges();
-            var car = _context.Cars.Find(carAndService.Cars.Id);
-            return RedirectToAction("Service", "Service", car);
+            if (ModelState.IsValid)
+            {
+                carAndService.Service.CarId = carAndService.Cars.Id;
+                _context.Services.Add(carAndService.Service);
+                _context.SaveChanges();
+                var car = _context.Cars.Find(carAndService.Cars.Id);
+                return RedirectToAction("Service", "Service", car);
+            }
+            var model = new CarAndServiceViewModel
+            {
+                ServiceTypes = _context.ServiceTypes.ToList()
+            };
+            return View("ServiceForm", model);
         }
 
         public ActionResult DeleteService(Service service)

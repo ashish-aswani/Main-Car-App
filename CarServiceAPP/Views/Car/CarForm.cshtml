@@ -1,39 +1,45 @@
 ﻿@model CarServiceAPP.ViewModels.CarCustomer
 @{
-	ViewBag.Title = "CarForm";
+    ViewBag.Title = "CarForm";
 }
 
 <h2>Car Form</h2>
 
 @using (Html.BeginForm("AddCar", "Car"))
 {
-	<div class="form-group">
-		@Html.LabelFor(c=>c.Cars.VIN)
-		@Html.TextBoxFor(c=>c.Cars.VIN, new { @class = "form-control" })
-       
-	</div>
+    @Html.ValidationSummary("", new { @class = "text-danger" })
 
-	<div class="form-group">
-		@Html.LabelFor(c => c.Cars.Make)
-        
-		@Html.DropDownListFor(c => c.Cars.Make,new SelectList(Model.CarMakes,"Make","Make"),"Select Make", new { @class = "form-control" })
-	</div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Cars.VIN)
+        @Html.TextBoxFor(c => c.Cars.VIN, new { @class = "form-control" })
 
-	<div class="form-group">
-		@Html.LabelFor(c => c.Cars.Model)
-		@Html.TextBoxFor(c => c.Cars.Model, new { @class = "form-control" })
-	</div>
+    </div>
 
-	<div class="form-group">
-		@Html.LabelFor(c => c.Cars.Style)
-		@Html.DropDownListFor(c => c.Cars.Style,new SelectList(Model.CarStyles,"Style","Style"),"Select Style", new { @class = "form-control" })
-	</div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Cars.Make)
 
-	<div class="form-group">
-		@Html.LabelFor(c => c.Cars.Year)
-		@Html.TextBoxFor(c => c.Cars.Year, new { @class = "form-control" })
-	</div>
-	@Html.HiddenFor(c => c.ApplicationUsers.Id)
-    @Html.HiddenFor(c=>c.Cars.Id)
-	<button class="btn btn-dark" type="submit">Submit</button>
+        @Html.DropDownListFor(c => c.Cars.Make, new SelectList(Model.CarMakes, "Make", "Make"), "Select Make", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Cars.Model)
+        @Html.TextBoxFor(c => c.Cars.Model, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Cars.Style)
+        @Html.DropDownListFor(c => c.Cars.Style, new SelectList(Model.CarStyles, "Style", "Style"), "Select Style", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Cars.Year)
+        @Html.TextBoxFor(c => c.Cars.Year, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(c => c.ApplicationUsers.Id)
+    // @Html.HiddenFor(c => c.Cars.Id)
+    <button class="btn btn-dark" type="submit">Submit</button>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
 }
