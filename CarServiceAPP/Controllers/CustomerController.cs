@@ -65,13 +65,17 @@ namespace CarServiceAPP.Controllers
             editCustomer.LastName = applicationUser.LastName;
             editCustomer.City = applicationUser.City;
             editCustomer.PhoneNumber = applicationUser.PhoneNumber;
-
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            if (HttpContext.User.IsInRole("admin"))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "User");
+            }
+            
         }
-
-
-
 
         public ActionResult DeleteCustomerDetails(ApplicationUser applicationUser)
         {

@@ -1,4 +1,4 @@
-﻿@model CarServiceAPP.Models.ApplicationUser
+﻿@model CarServiceAPP.ViewModels.CarAndCustomerViewModel
 @{
     ViewBag.Title = "Details";
 }
@@ -15,18 +15,21 @@
         <th>Email</th>
         <th>City</th>
         <th>Mobile</th>
+        <th></th>
     </tr>
 
     <tr>
-        <td>@Model.FirstName</td>
-        <td>@Model.LastName</td>
-        <td>@Model.Email</td>
-        <td>@Model.City</td>
-        <td>@Model.PhoneNumber</td>
+        <td>@Model.User.FirstName</td>
+        <td>@Model.User.LastName</td>
+        <td>@Model.User.Email</td>
+        <td>@Model.User.City</td>
+        <td>@Model.User.PhoneNumber</td>
+        <td>@Html.ActionLink(" ", "EditCustomer", "Customer", Model.User, new { @class = "btn  btn-success fa fa-edit" })</td>
     </tr>
 </table>
 
-@*<table class="table table-bordered table-striped">
+
+<table class="table table-bordered table-striped">
     <tr>
         <th>VIN</th>
         <th>Make</th>
@@ -35,7 +38,10 @@
         <th>Year</th>
         <th></th>
         <th></th>
-        <th></th>
+        @if (ViewContext.HttpContext.User.IsInRole("admin"))
+        {
+            <th></th>
+        }
     </tr>
     @foreach (var item in Model.Cars)
     {
@@ -49,8 +55,12 @@
                 <td>@item.Year</td>
 
                 <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench" })</td>
+                
                 <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil" })</td>
-                <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash" })</td>
+                @if (ViewContext.HttpContext.User.IsInRole("admin"))
+                    {
+                        <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash" })</td> 
+                    }
             </tr>
         }
 
@@ -58,4 +68,4 @@
 
 </table>
 
-<button>@Html.ActionLink("Add Car", "CarForm", "Car", Model.User, new { @class = " btn fa fa-plus ", style = "color:black;" })</button>*@
+<button>@Html.ActionLink("Add Car", "CarForm", "Car", Model.User, new { @class = " btn fa fa-plus ", style = "color:black;" })</button>

@@ -23,12 +23,17 @@ namespace CarServiceAPP.Controllers
         {
             _context.Dispose();
         }
-    
+        [Authorize]
         public ActionResult Index()
         {
             string userName = User.Identity.GetUserName();
             ApplicationUser user = _context.Users.Where(c => c.UserName.Equals(userName)).SingleOrDefault();
-            return View(user);
+            var viewModel = new CarAndCustomerViewModel
+            {
+                User=user,
+                Cars = _context.Cars.ToList()
+            };
+            return View(viewModel);
         }
 
     }

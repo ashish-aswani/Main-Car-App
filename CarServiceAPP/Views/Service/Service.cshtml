@@ -38,25 +38,34 @@ else
             <th>Price</th>
             <th>Date Added</th>
             <th>Service Type</th>
-            <th></th>
-
+            @if (ViewContext.HttpContext.User.IsInRole("admin"))
+            {
+                <th></th>
+            }
 
         </tr>
         @foreach (var item in Model.Services)
         {
-            if(item.CarId==Model.Cars.Id)
-            { 
-            <tr>
-                <td>@item.Miles</td>
-                <td>@item.Price</td>
-                <td>@item.DateAdded.ToLongDateString()</td>
-                <td>@item.ServiceType</td>
-                <td>@*<button class="btn btn-danger fa fa-trash">*@@Html.ActionLink(" ", "DeleteService", "Service", item, new { @class = "btn  btn-danger fa fa-trash" })@*</button>*@</td>
-            </tr>
+            if (item.CarId == Model.Cars.Id)
+            {
+                <tr>
+                    <td>@item.Miles</td>
+                    <td>@item.Price</td>
+                    <td>@item.DateAdded.ToLongDateString()</td>
+                    <td>@item.ServiceType</td>
+                    @if (ViewContext.HttpContext.User.IsInRole("admin"))
+                    {
+                        <td>@Html.ActionLink(" ", "DeleteService", "Service", item, new { @class = "btn  btn-danger fa fa-trash" })</td>
+                    }
+
+                </tr>
             }
         }
 
     </table>
 }
+@if (ViewContext.HttpContext.User.IsInRole("admin"))
+{
+    @Html.ActionLink("Add Service", "ServiceForm", "Service", Model.Cars, new { @class = "btn btn-dark" })
+}
 
-@Html.ActionLink("Add Service", "ServiceForm", "Service", Model.Cars, new { @class = "btn btn-dark" })
