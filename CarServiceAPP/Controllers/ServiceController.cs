@@ -53,6 +53,7 @@ namespace CarServiceAPP.Controllers
         {
             if (ModelState.IsValid)
             {
+                //carAndService.Service.DateAdded = DateTime.Today;
                 carAndService.Service.CarId = carAndService.Cars.Id;
                 _context.Services.Add(carAndService.Service);
                 _context.SaveChanges();

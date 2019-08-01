@@ -49,9 +49,9 @@
                 <td>@item.Style</td>
                 <td>@item.Year</td>
 
-                <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench" })</td>
-                <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil" })</td>
-                <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash" })</td>
+                <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench", title="View Services" })</td>
+                <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil", title="Edit Car details"})</td>
+                <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash", title="Delete Car" })</td>
             </tr>
         }
 

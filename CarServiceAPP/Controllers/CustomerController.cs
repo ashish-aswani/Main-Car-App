@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CarServiceAPP.ViewModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarServiceAPP.Controllers
 {
@@ -23,6 +24,7 @@ namespace CarServiceAPP.Controllers
 		}
 		public ActionResult Index(string option = "", string search = "")
         {
+            
             if (option.Equals("Email"))
             {
                 if (search.Equals(""))
@@ -30,6 +32,7 @@ namespace CarServiceAPP.Controllers
                 else
                     return View(_context.Users.Where(c => c.Email.Equals(search)).ToList());
             }
+
             else if (option.Equals("Mobile"))
             {
                 if (search.Equals(""))
@@ -37,6 +40,7 @@ namespace CarServiceAPP.Controllers
                 else
                     return View(_context.Users.Where(c => c.PhoneNumber.ToString().Equals(search)).ToList());
             }
+
             else if (option.Equals("FirstName"))
             {
                 if (search.Equals(""))
@@ -44,6 +48,7 @@ namespace CarServiceAPP.Controllers
                 else
                     return View(_context.Users.Where(c => c.FirstName.Equals(search)).ToList());
             }
+
             else
             {
                 return View(_context.Users.ToList());
@@ -127,7 +132,7 @@ namespace CarServiceAPP.Controllers
             }
             else
             {
-                return View(_context.Customers.ToList());
+                return View(_context.Users.ToList());
             }
         }
     }

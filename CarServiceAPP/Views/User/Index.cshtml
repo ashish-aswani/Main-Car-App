@@ -24,7 +24,7 @@
         <td>@Model.User.Email</td>
         <td>@Model.User.City</td>
         <td>@Model.User.PhoneNumber</td>
-        <td>@Html.ActionLink(" ", "EditCustomer", "Customer", Model.User, new { @class = "btn  btn-success fa fa-edit" })</td>
+        <td>@Html.ActionLink(" ", "EditCustomer", "Customer", Model.User, new { @class = "btn  btn-success fa fa-edit", title="Edit Profile" })</td>
     </tr>
 </table>
 
@@ -54,12 +54,12 @@
                 <td>@item.Style</td>
                 <td>@item.Year</td>
 
-                <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench" })</td>
+                <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench", title="View Service History" })</td>
                 
-                <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil" })</td>
+                <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil", title="Edit Car Details" })</td>
                 @if (ViewContext.HttpContext.User.IsInRole("admin"))
                     {
-                        <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash" })</td> 
+                        <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash", title="Delete Car" })</td> 
                     }
             </tr>
         }

@@ -205,6 +205,22 @@
     <Compile Include="Migrations\201907291001181_ColumnsInAppUser.Designer.cs">
       <DependentUpon>201907291001181_ColumnsInAppUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908010908523_ValidationCheck.cs" />
+    <Compile Include="Migrations\201908010908523_ValidationCheck.Designer.cs">
+      <DependentUpon>201908010908523_ValidationCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908011314408_EditValidation.cs" />
+    <Compile Include="Migrations\201908011314408_EditValidation.Designer.cs">
+      <DependentUpon>201908011314408_EditValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908011318232_New.cs" />
+    <Compile Include="Migrations\201908011318232_New.Designer.cs">
+      <DependentUpon>201908011318232_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908011322366_Latest.cs" />
+    <Compile Include="Migrations\201908011322366_Latest.Designer.cs">
+      <DependentUpon>201908011322366_Latest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
@@ -230,11 +246,16 @@
     <Content Include="Content\Custom.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Index.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\coImg1.jpg" />
+    <Content Include="Images\coImg2.jpg" />
+    <Content Include="Images\coImg3jpg.jpg" />
+    <Content Include="Images\coImg4jpg.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -337,6 +358,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907291001181_ColumnsInAppUser.resx">
       <DependentUpon>201907291001181_ColumnsInAppUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908010908523_ValidationCheck.resx">
+      <DependentUpon>201908010908523_ValidationCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908011314408_EditValidation.resx">
+      <DependentUpon>201908011314408_EditValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908011318232_New.resx">
+      <DependentUpon>201908011318232_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908011322366_Latest.resx">
+      <DependentUpon>201908011322366_Latest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

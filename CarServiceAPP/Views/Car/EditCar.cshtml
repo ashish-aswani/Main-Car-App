@@ -7,31 +7,34 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(c => c.Cars.VIN)
         @Html.TextBoxFor(c => c.Cars.VIN, new { @class = "form-control" })
-
+        @Html.ValidationMessageFor(c => c.Cars.VIN)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(c => c.Cars.Make)
         @Html.DropDownListFor(c => c.Cars.Make, new SelectList(Model.CarMakes, "Make", "Make"), "Select Make", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Cars.Make)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(c => c.Cars.Model)
         @Html.TextBoxFor(c => c.Cars.Model, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Cars.Model)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(c => c.Cars.Style)
         @Html.DropDownListFor(c => c.Cars.Style, new SelectList(Model.CarStyles, "Style", "Style"), "Select Style", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Cars.Style)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(c => c.Cars.Year)
         @Html.TextBoxFor(c => c.Cars.Year, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Cars.Year)
     </div>
     @Html.HiddenFor(c => c.Cars.Id)
     @Html.HiddenFor(c => c.Cars.ApplicationUserId)

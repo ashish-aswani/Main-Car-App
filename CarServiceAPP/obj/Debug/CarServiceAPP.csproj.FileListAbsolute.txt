@@ -111,3 +111,7 @@ D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migratio
 D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.EnumToDb1.resources
 D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.ApplicationUserForeignKey.resources
 D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.ColumnsInAppUser.resources
+D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.ValidationCheck.resources
+D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.EditValidation.resources
+D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.New.resources
+D:\AshishJune19\MVC\CarServiceAPP\CarServiceAPP\obj\Debug\CarServiceAPP.Migrations.Latest.resources

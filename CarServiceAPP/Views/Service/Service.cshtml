@@ -55,7 +55,7 @@ else
                     <td>@item.ServiceType</td>
                     @if (ViewContext.HttpContext.User.IsInRole("admin"))
                     {
-                        <td>@Html.ActionLink(" ", "DeleteService", "Service", item, new { @class = "btn  btn-danger fa fa-trash" })</td>
+                        <td>@Html.ActionLink(" ", "DeleteService", "Service", item, new { @class = "btn  btn-danger fa fa-trash", title="Delete Service"})</td>
                     }
 
                 </tr>
