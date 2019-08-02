@@ -27,38 +27,46 @@
     </tr>
 </table>
 
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>VIN</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Style</th>
-        <th>Year</th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model.Cars)
+@{
+    int res = 0;
+}
+@if (Model.Cars.Any())
+{
+    foreach (var item in Model.Cars)
     {
         if (item.ApplicationUserId == Model.User.Id)
         {
-            <tr>
-                <td>@item.VIN</td>
-                <td>@item.Make</td>
-                <td>@item.Model</td>
-                <td>@item.Style</td>
-                <td>@item.Year</td>
+            res++;
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>VIN</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Style</th>
+                    <th>Year</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>@item.VIN</td>
+                    <td>@item.Make</td>
+                    <td>@item.Model</td>
+                    <td>@item.Style</td>
+                    <td>@item.Year</td>
 
-                <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench", title="View Services" })</td>
-                <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil", title="Edit Car details"})</td>
-                <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash", title="Delete Car" })</td>
-            </tr>
+                    <td>@Html.ActionLink(" ", "Service", "Service", item, new { @class = "btn btn-dark fa fa-wrench", title = "View Services" })</td>
+                    <td>@Html.ActionLink(" ", "EditCar", "Car", item, new { @class = "btn  btn-success fa fa-pencil", title = "Edit Car details" })</td>
+                    <td>@Html.ActionLink(" ", "DeleteCar", "Car", item, new { @class = "btn  btn-danger fa fa-trash", title = "Delete Car" })</td>
+                </tr>
+            </table>
         }
-
     }
+}
 
-</table>
+<button>@Html.ActionLink("Add Car", "CarForm", "Car", Model.User, new { @class = " btn fa fa-plus ", style = "color:black;" })</button>
 
-<button>@Html.ActionLink("Add Car", "CarForm", "Car", Model.User, new {@class=" btn fa fa-plus " ,style="color:black;"})</button>
-
-
+@if (res == 0)
+{
+    <h4 style="text-align:center;">No car found</h4>
+}

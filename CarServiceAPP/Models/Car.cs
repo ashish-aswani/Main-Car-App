@@ -12,7 +12,7 @@ namespace CarServiceAPP.Models
 		public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Registration Number is Mandatory")]
-        [RegularExpression(@"^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$", ErrorMessage = "Enter valid Registration Number")]
+        //[RegularExpression(@"^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$", ErrorMessage = "Enter valid Registration Number")]
         [Display(Name ="Registration Number")]
         public string VIN { get; set; }
 
@@ -26,7 +26,7 @@ namespace CarServiceAPP.Models
 		public string Style { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Year is Mandatory")]
-        [RegularExpression(@"^(19[5-9]\d|20[0-4]\d|2050)$", ErrorMessage = "Enter valid year")]
+        //[RegularExpression(@"^(19[5-9]\d|20[0-4]\d|2050)$", ErrorMessage = "Enter valid year")]
         public int Year { get; set; }
 
 		public string ApplicationUserId { get; set; }

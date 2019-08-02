@@ -9,7 +9,6 @@
 @using (Html.BeginForm("SaveEdit", "Customer", Model))
 {
     @Html.AntiForgeryToken()
-
     <hr />
 
     <div class="form-group">
@@ -51,7 +50,7 @@
         </div>
     </div>
 
-    
+
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

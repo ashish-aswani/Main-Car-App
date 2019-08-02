@@ -43,27 +43,33 @@ namespace CarServiceAPP.Controllers
             return View(viewModel);
         }
 
-		public ActionResult AddCar(CarCustomer carCustomer)
-		{
-            if (ModelState.IsValid)
+
+
+        [HttpPost]
+        public ActionResult CarForm(CarCustomer carCustomer)
+        {
+            carCustomer.Cars.ApplicationUserId = carCustomer.ApplicationUsers.Id;
+            if (!ModelState.IsValid)
             {
-                carCustomer.Cars.ApplicationUserId = carCustomer.ApplicationUsers.Id;
+                var viewModel = new CarCustomer()
+                {
+                    ApplicationUsers = _context.Users.Find(carCustomer.ApplicationUsers.Id),
+                    CarMakes = _context.CarMakes.ToList(),
+                    CarStyles = _context.CarStyles.ToList()
+                };
+
+                return View(viewModel);
+            }
+            else
+            { 
                 _context.Cars.Add(carCustomer.Cars);
 
                 _context.SaveChanges();
                 return RedirectToAction("ViewDetails", "Customer", carCustomer.ApplicationUsers);
             }
 
-            var viewModel = new CarCustomer()
-            {
-               
-                CarMakes = _context.CarMakes.ToList(),
-                CarStyles = _context.CarStyles.ToList()
-            };
-            return View("CarForm",viewModel);
-		}
-
-
+        }
+		
         public ActionResult EditCar(Car car)
         {
            

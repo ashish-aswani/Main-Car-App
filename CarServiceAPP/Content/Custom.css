@@ -11,3 +11,6 @@
 .input-validation-error {
     border: 2px solid red 
 }
+.carousel-inner {
+    height: 400px;
+}

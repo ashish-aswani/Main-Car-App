@@ -8,6 +8,25 @@ namespace CarServiceAPP.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "First Name is Mandatory")]
+        [RegularExpression(@"([A-Z][a-z]*)([\\s\\\'-][A-Z][a-z]*)*", ErrorMessage = "Enter valid First Name")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Last Name is Mandatory")]
+        [RegularExpression(@"([A-Z][a-z]*)([\\s\\\'-][A-Z][a-z]*)*", ErrorMessage = "Enter valid Last Name")]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "City is Mandatory")]
+        [RegularExpression(@"^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$", ErrorMessage = "Enter valid City Name")]
+        public string City { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Mobile Number is Mandatory")]
+        [RegularExpression(@"^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$", ErrorMessage = "Enter valid Mobile Number")]
+        [Display(Name = "Mobile")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ExternalLoginListViewModel
