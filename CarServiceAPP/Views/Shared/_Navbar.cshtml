@@ -15,6 +15,7 @@
                 @if (ViewContext.HttpContext.User.IsInRole("admin"))
                 {
                     <li>@Html.ActionLink("Customer", "Index", "Customer")</li>
+                    <li>@Html.ActionLink("Administrator", "Index", "Admin")</li>
                 }
                 else
                 {
