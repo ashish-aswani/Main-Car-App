@@ -3,5 +3,99 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Administrator Services</h2>
 
+@section css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+<div class="row">
+    <div class="col-md-12 " style="border:1px solid black;">
+        <table class="table table-striped table-hover">
+            <tr style="text-align:center">
+                <th><p>Car Makes</p> </th>
+                <th><p>Car Styles</p></th>
+                <th><p>Service Types</p></th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-md-4 " style="border:1px solid black;height:320px; overflow:auto">
+            <table class="table table-striped table-hover">
+                @*<tr>
+                    <th>Car Makes</th>
+                    <th></th>
+                </tr>*@
+                @foreach (var item in Model.CarMakes)
+                {
+                    <tr>
+                        <td>@item.Make</td>
+                        <td>@Html.ActionLink(" ", "DeleteMake",new{ item.Id}, new { @class = "btn fa fa-trash myBtn"  ,title = "Delete Make" })</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div class="col-md-4 " style="border:1px solid black;height:320px; overflow:auto;">
+            <table class="table table-striped table-hover">
+                @*<tr>
+                    <th>Car Styles</th>
+                    <th></th>
+                </tr>*@
+                @foreach (var item in Model.CarStyles)
+                {
+                    <tr>
+                        <td>@item.Style</td>
+                        <td>@Html.ActionLink(" ", "DeleteStyle",new{ item.Id}, new { @class = "btn fa fa-trash myBtn", title = "Delete Style" })</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div class="col-md-4 " style="border:1px solid black;height:320px; overflow:auto;">
+            <table class="table table-striped table-hover">
+                @*<tr>
+                    <th>Service Types</th>
+                    <th></th>
+                </tr>*@
+                @foreach (var item in Model.ServiceTypes)
+                {
+                    <tr>
+                        <td>@item.CarServiceType</td>
+                        <td>@Html.ActionLink(" ", "DeleteServiceType", new{ item.Id}, new { @class = "btn fa fa-trash myBtn2", title = "Delete Service Type" })</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            @using (Html.BeginForm("AddMake", "Admin"))
+            {
+                @Html.TextBoxFor(m => m.CarMake.Make, new { @class = "form-control" })
+                <button class="btn btn-dark" type="submit">Add Make</button>
+            }
+
+        </div>
+
+        <div class="col-md-4">
+            @using (Html.BeginForm("AddStyle", "Admin"))
+            {
+                @Html.TextBoxFor(m => m.CarStyle.Style, new { @class = "form-control" })
+                <button class="btn btn-dark" type="submit">Add Style</button>
+            }
+
+        </div>
+
+        <div class="col-md-4">
+            @using (Html.BeginForm("AddServiceType", "Admin"))
+            {
+                @Html.TextBoxFor(m => m.ServiceType.CarServiceType, new { @class = "form-control" })
+                <button class="btn btn-dark" type="submit">Add Service Type</button>
+            }
+        </div>
+
+    </div>
